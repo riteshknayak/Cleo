@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "675425670311",
+    "project_id": "cleo-android",
+    "storage_bucket": "cleo-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675425670311:android:82d856ce13b43f2e91b782",
+        "android_client_info": {
+          "package_name": "com.riteshknayak.cleo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675425670311-4eqjrr0mot8k9qv4ff9bblvrqgs0g41c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.riteshknayak.cleo",
+            "certificate_hash": "49461259f696c1d634766a85faf16cddb4c55781"
+          }
+        },
+        {
+          "client_id": "675425670311-8oku07orek2a3mfk0e93p0bo132vtre5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAndF6Y5STYsDt0_4weymLyKTKj6tgxvxQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675425670311-8oku07orek2a3mfk0e93p0bo132vtre5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -71,13 +71,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void addToChat(String message,String sentBy){
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                messageList.add(new Message(message,sentBy));
-                messageAdapter.notifyDataSetChanged();
-                recyclerView.smoothScrollToPosition(messageAdapter.getItemCount());
-            }
+        runOnUiThread(() -> {
+            messageList.add(new Message(message,sentBy));
+            messageAdapter.notifyDataSetChanged();
+            recyclerView.smoothScrollToPosition(messageAdapter.getItemCount());
         });
     }
 
@@ -92,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
         JSONObject jsonBody = new JSONObject();
         try {
-            jsonBody.put("model","text-davinci-003");
+            jsonBody.put("model","text-curie-001");
             jsonBody.put("prompt",question);
             jsonBody.put("max_tokens",100);
             jsonBody.put("temperature",0);
@@ -102,8 +99,7 @@ public class MainActivity extends AppCompatActivity {
         RequestBody body = RequestBody.create(jsonBody.toString(),JSON);
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/completions")
-                .header("Authorization","Bearer " +
-                        "./")
+                .header("Authorization","Bearer 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")
                 .post(body)
                 .build();
 
@@ -116,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 if(response.isSuccessful()){
-                    JSONObject  jsonObject = null;
+                    JSONObject  jsonObject;
                     try {
                         jsonObject = new JSONObject(response.body().string());
                         JSONArray jsonArray = jsonObject.getJSONArray("choices");
