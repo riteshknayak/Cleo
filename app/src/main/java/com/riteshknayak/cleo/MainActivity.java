@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         DatabaseHelper databaseHelper = DatabaseHelper.getDB(this);
 
         //Block Night mode
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         //The list of messages
         messageList = new ArrayList<>();
