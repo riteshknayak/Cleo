@@ -30,36 +30,45 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
+
+
+
     RecyclerView recyclerView;
     TextView welcomeTextView;
     EditText messageEditText;
     ImageButton sendButton;
     List<Message> messageList;
     MessageAdapter messageAdapter;
-    public static final MediaType JSON
-            = MediaType.get("application/json; charset=utf-8");
+
+
+    //Initialising JSON
+    public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
+
+
+    //Initialising OkHttpClient
     OkHttpClient client = new OkHttpClient.Builder()
-            .readTimeout(60, TimeUnit.SECONDS)
-            .build();
+                                          .readTimeout(60, TimeUnit.SECONDS)
+                                          .build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        messageList = new ArrayList<>();
 
         //Block Night mode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+
         messageList = new ArrayList<>();
 
+
         recyclerView = findViewById(R.id.recycler_view);
-        welcomeTextView = findViewById(R.id.welcome_text);
         messageEditText = findViewById(R.id.message_edit_text);
         sendButton = findViewById(R.id.send_btn);
 
-        //setup recycler view
+
+        //Setup Recycler view
         messageAdapter = new MessageAdapter(messageList);
         recyclerView.setAdapter(messageAdapter);
         LinearLayoutManager llm = new LinearLayoutManager(this);
@@ -71,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
             addToChat(question,Message.SENT_BY_ME);
             messageEditText.setText("");
             callAPI(question);
-            welcomeTextView.setVisibility(View.GONE);
         });
     }
 
