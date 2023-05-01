@@ -63,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
 
         //The list of messages
         messageList = new ArrayList<>();
-
+        ArrayList<Message> arrMessages = (ArrayList<Message>) databaseHelper.messagesDao().getMessages();
+        messageList.addAll(arrMessages);
 
         recyclerView = findViewById(R.id.recycler_view);
         messageEditText = findViewById(R.id.message_edit_text);
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     void addToChat(String message,String sentBy){
         runOnUiThread(() -> {
             messageList.add(new Message(message,sentBy));
-            messageAdapter.notifyDataSetChanged();
+            messageAdapter.notifyItemChanged(messageAdapter.getItemCount()-1);
             recyclerView.smoothScrollToPosition(messageAdapter.getItemCount());
         });
     }
