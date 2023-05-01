@@ -55,11 +55,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Initialising Database
+        DatabaseHelper databaseHelper = DatabaseHelper.getDB(this);
 
         //Block Night mode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-
+        //The list of messages
         messageList = new ArrayList<>();
 
 
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         //Setup Recycler view
         messageAdapter = new MessageAdapter(messageList);
         recyclerView.setAdapter(messageAdapter);
+
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setStackFromEnd(true);
         recyclerView.setLayoutManager(llm);
@@ -78,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         sendButton.setOnClickListener((v)->{
             String question = messageEditText.getText().toString().trim();
             addToChat(question,Message.SENT_BY_ME);
+            databaseHelper.messagesDao().addMessage(new Message(question, Message.SENT_BY_ME));
             messageEditText.setText("");
             callAPI(question);
         });
@@ -94,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
     void addResponse(String response){
         messageList.remove(messageList.size()-1);
         addToChat(response,Message.SENT_BY_BOT);
+
+        DatabaseHelper databaseHelper = DatabaseHelper.getDB(this);
+        databaseHelper.messagesDao().addMessage(new Message(response, Message.SENT_BY_BOT));
     }
 
     void callAPI(String question){
