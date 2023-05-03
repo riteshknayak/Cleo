@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Cleo</string>
+    <string name="write_here">Write here</string>
+    <string name="send_button">send button</string>
 </resources>

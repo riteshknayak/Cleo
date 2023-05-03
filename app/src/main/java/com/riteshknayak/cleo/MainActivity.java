@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Initialising OkHttpClient
     OkHttpClient client = new OkHttpClient.Builder()
-                                          .readTimeout(60, TimeUnit.SECONDS)
+                                          .readTimeout(15, TimeUnit.SECONDS)
                                           .build();
 
     @Override
