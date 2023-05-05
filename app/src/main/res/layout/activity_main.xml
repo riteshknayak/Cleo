@@ -5,11 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <include layout="@layout/actionbar"
+        android:id="@+id/action_bar"/>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/recycler_view"
-        android:layout_above="@id/bottom_layout" />
+        android:layout_width="match_parent"
+        android:layout_height="582dp"
+        android:layout_above="@id/bottom_layout"
+        android:layout_below="@+id/action_bar"
+        android:layout_marginTop="0dp"
+        android:background="#140D36" />
+
 
 
 <!--    <TextView-->
@@ -31,7 +38,8 @@
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:padding="8dp"
-        android:id="@+id/bottom_layout">
+        android:id="@+id/bottom_layout"
+        android:background="#140D36">
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
