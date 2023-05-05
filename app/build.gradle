@@ -1,3 +1,4 @@
+//file:noinspection SpellCheckingInspection
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
@@ -65,5 +66,11 @@ dependencies {
 
     // optional - Paging 3 Integration
     implementation "androidx.room:room-paging:$room_version"
+
+
+
+    //android-observablescrollview
+    implementation "com.github.ksoichiro:android-observablescrollview:1.6.0"
+
 
 }

@@ -1,16 +1,17 @@
 package com.riteshknayak.cleo;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+
+import com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView;
+import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
+import com.github.ksoichiro.android.observablescrollview.ScrollState;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,16 +30,18 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ObservableScrollViewCallbacks {
 
 
 
-    RecyclerView recyclerView;
+    ObservableRecyclerView recyclerView;
+
     TextView welcomeTextView;
     EditText messageEditText;
     ImageButton sendButton;
     List<Message> messageList;
     MessageAdapter messageAdapter;
+
 
 
     //Initialising JSON
@@ -70,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         messageEditText = findViewById(R.id.message_edit_text);
         sendButton = findViewById(R.id.send_btn);
 
+        recyclerView.setScrollViewCallbacks(this);
 
         //Setup Recycler view
         messageAdapter = new MessageAdapter(messageList);
@@ -166,6 +170,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
+
+    }
+
+    @Override
+    public void onDownMotionEvent() {
+
+    }
+
+    @Override
+    public void onUpOrCancelMotionEvent(ScrollState scrollState) {
+    }
 }
 
 
