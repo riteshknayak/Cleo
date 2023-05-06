@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/bg_color">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -85,19 +86,25 @@
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:padding="8dp"
+        android:layout_marginBottom="8dp"
         android:id="@+id/bottom_layout"
         android:background="@color/bg_color">
+
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/message_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:hint="@string/write_here"
-            android:padding="16dp"
             android:layout_toStartOf="@id/send_btn"
             android:background="@drawable/rounded_corner"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_vertical"
+            android:hint="@string/write_your_message"
             android:importantForAutofill="no"
-            android:inputType="text" />
+            android:inputType="text"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textSize="18sp" />
 
 
         <ImageButton
