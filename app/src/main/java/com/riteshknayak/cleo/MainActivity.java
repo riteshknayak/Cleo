@@ -6,7 +6,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView;
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
     ImageButton sendButton;
     List<Message> messageList;
     MessageAdapter messageAdapter;
+    Toolbar toolbar;
 
 
 
@@ -72,8 +75,10 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
         recyclerView = findViewById(R.id.recycler_view);
         messageEditText = findViewById(R.id.message_edit_text);
         sendButton = findViewById(R.id.send_btn);
-
+        toolbar = findViewById(R.id.toolbar);
         recyclerView.setScrollViewCallbacks(this);
+
+        setSupportActionBar(toolbar);
 
         //Setup Recycler view
         messageAdapter = new MessageAdapter(messageList);
@@ -172,12 +177,20 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
 
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
+//        ActionBar ab = getSupportActionBar();
+//        if (dragging) {
+//            assert ab != null;
+//            if (scrollY > ab.getHeight()) {
+//                ab.hide();
+//            } else {
+//                ab.show();
+//            }
+//        }
 
     }
 
     @Override
     public void onDownMotionEvent() {
-
     }
 
     @Override

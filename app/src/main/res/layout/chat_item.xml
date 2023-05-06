@@ -2,24 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/left_chat_view"
-        android:background="@drawable/rounded_corner"
-        android:backgroundTint="#1E88E5"
-        android:padding="8dp"
-        android:layout_marginEnd="80dp"
-        >
+        android:background="@color/bg_color_light"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/left_chat_text_view"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textIsSelectable="true"
             />
     </LinearLayout>
@@ -30,16 +31,19 @@
         android:id="@+id/right_chat_view"
         android:layout_alignParentEnd="true"
         android:background="@drawable/rounded_corner"
-        android:backgroundTint="#7CB342"
+        android:backgroundTint="@color/teal"
         android:padding="8dp"
         android:layout_marginStart="80dp"
-        tools:ignore="RelativeOverlap">
+        android:layout_marginEnd="8dp"
+        tools:ignore="RelativeOverlap"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/right_chat_text_view"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="16sp"
             />
     </LinearLayout>
 
