@@ -30,7 +30,7 @@
                     android:src="@mipmap/ic_launcher_round"
                     android:id="@+id/app_logo_on_bar"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="18dp"/>
+                    android:layout_marginStart="5dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
                     android:textColor="@color/white"
                     android:fontFamily="@font/nunito_bold"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="3dp"
+                    android:layout_marginStart="8dp"
                     android:layout_toEndOf="@id/app_logo_on_bar"
                     android:textSize="18sp"/>
 
