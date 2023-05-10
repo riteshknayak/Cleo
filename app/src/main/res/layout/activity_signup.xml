@@ -74,21 +74,5 @@
         android:layout_marginBottom="20dp"
         android:text="" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Signupwithgoogle"
-        android:layout_below="@id/veriText"
-        android:layout_margin="20dp"
-        android:textColor="@color/white"
-        android:text="Sign up with google"/>
-
-
-
-
-
-
-
-
 
 </RelativeLayout>

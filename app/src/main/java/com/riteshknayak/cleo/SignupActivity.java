@@ -49,9 +49,6 @@ public class SignupActivity extends AppCompatActivity {
     SignInClient oneTapClient;
     BeginSignInRequest signUpRequest;
 
-    private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
-    private boolean showOneTapUI = true;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,58 +56,7 @@ public class SignupActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        oneTapClient = Identity.getSignInClient(this);
-        signUpRequest = BeginSignInRequest.builder()
-                .setGoogleIdTokenRequestOptions(BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
-                        .setSupported(true)
-                        // Your server's client ID, not your Android client ID.
-                        .setServerClientId(getString(R.string.web_client_id))
-                        // Show all accounts on the device.
-                        .setFilterByAuthorizedAccounts(false)
-                        .build())
-                .build();
-
-        ActivityResultLauncher<IntentSenderRequest>
-                activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartIntentSenderForResult(), new ActivityResultCallback<ActivityResult>() {
-            @Override
-            public void onActivityResult(ActivityResult result) {
-                if (result.getResultCode() == Activity.RESULT_OK){
-                    try {
-                        SignInCredential credential = oneTapClient.getSignInCredentialFromIntent(result.getData());
-                        String idToken = credential.getGoogleIdToken();
-                        if (idToken !=  null) {
-                            String email = credential.getId();
-                            Log.d(TAG, "Got ID token.");
-                            Toast.makeText(getApplicationContext(), email,Toast.LENGTH_LONG).show();
-                        }
-                    } catch (ApiException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
-
-        binding.signupBtn.setOnClickListener(v -> {
-            oneTapClient.beginSignIn(signUpRequest)
-                    .addOnSuccessListener(this, new OnSuccessListener<BeginSignInResult>() {
-                        @Override
-                        public void onSuccess(BeginSignInResult result) {
-                            IntentSenderRequest intentSenderRequest = new IntentSenderRequest.Builder(result.getPendingIntent().getIntentSender()).build();
-                            activityResultLauncher.launch(intentSenderRequest);
-
-                        }
-                    })
-                    .addOnFailureListener(this, new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            // No Google Accounts found. Just continue presenting the signed-out UI.
-                            Log.d(TAG, e.getLocalizedMessage());
-                        }
-                    });
-        });
-
         mAuth = FirebaseAuth.getInstance();
-
         binding.signupBtn.setOnClickListener(v -> {
             String email, pass, name;
 
