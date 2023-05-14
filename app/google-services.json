@@ -14,15 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "675425670311-4eqjrr0mot8k9qv4ff9bblvrqgs0g41c.apps.googleusercontent.com",
+          "client_id": "675425670311-9kvdv6jk136bpinu8gnllphdu07e11aj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.riteshknayak.cleo",
-            "certificate_hash": "49461259f696c1d634766a85faf16cddb4c55781"
+            "certificate_hash": "9981ee0ad61697254e04d9e9cc3704a48c6b92dd"
           }
         },
         {
-          "client_id": "675425670311-8oku07orek2a3mfk0e93p0bo132vtre5.apps.googleusercontent.com",
+          "client_id": "675425670311-l5rvt3jl6vtalrjveetoidb1vjvf6s8h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

@@ -7,35 +7,51 @@
     tools:context=".SignupActivity">
 
     <EditText
+        android:id="@+id/nameBox"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@drawable/rounded_corner"
-        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:autofillHints="name"
+        android:background="@drawable/rounded_corner"
         android:hint="Type your Name"
-        android:paddingStart="10dp"
-        android:id="@+id/nameBox"/>
+        android:inputType="textPersonName"
+        android:paddingStart="10dp" />
+
 
     <EditText
+        android:id="@+id/emailBox"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@drawable/rounded_corner"
-        android:layout_margin="20dp"
-        android:autofillHints="emailAddress"
-        android:hint="Type your Email"
-        android:paddingStart="10dp"
         android:layout_below="@id/nameBox"
-        android:id="@+id/emailBox"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:autofillHints="emailAddress"
+        android:background="@drawable/rounded_corner"
+        android:hint="Type your Email"
+        android:inputType="textEmailAddress"
+        android:paddingStart="10dp" />
+
+
     <EditText
+        android:id="@+id/passBox"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@drawable/rounded_corner"
-        android:layout_margin="20dp"
-        android:autofillHints="password"
-        android:hint="Type your Password"
         android:layout_below="@id/emailBox"
-        android:paddingStart="10dp"
-        android:id="@+id/passBox"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:autofillHints="password"
+        android:background="@drawable/rounded_corner"
+        android:hint="Type your Password"
+        android:paddingStart="10dp" />
+
+
 
     <Button
         android:layout_width="match_parent"
@@ -47,19 +63,23 @@
         android:paddingStart="10dp"
         android:text="Sign up"
         android:textColor="@color/white"
-
         android:id="@+id/signupBtn"/>
 
+
     <Button
+        android:id="@+id/checkVerificationBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="check verfication"
-        android:layout_margin="20dp"
-        android:background="@drawable/rounded_corner"
         android:layout_below="@id/signupBtn"
-        android:textColor="@color/white"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_corner"
+        android:text="check verfication"
+        android:textColor="@color/white" />
 
-        android:id="@+id/checkVerificationBtn"/>
 
     <Button
         android:id="@+id/veriText"
@@ -69,10 +89,21 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:textColor="@color/white"
-
+        android:visibility="invisible"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:text="" />
+
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_with_google"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/veriText"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp" />
 
 
 </RelativeLayout>
