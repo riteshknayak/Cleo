@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.Cleo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorSecondary">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/teal</item>
+        <item name="colorSecondary">@color/bg_color</item>
+        <item name="colorOnPrimary">@color/bg_color_light</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/bg_color</item>
         <!-- Customize your theme here. -->

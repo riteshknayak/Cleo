@@ -1,55 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignupActivity">
 
-    <EditText
-        android:id="@+id/nameBox"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:autofillHints="name"
-        android:background="@drawable/rounded_corner"
-        android:hint="Type your Name"
-        android:inputType="textPersonName"
-        android:paddingStart="10dp" />
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:boxStrokeWidth="2dp"
+        app:boxCornerRadiusBottomEnd="13dp"
+        app:boxCornerRadiusBottomStart="13dp"
+        app:boxCornerRadiusTopEnd="13dp"
+        app:boxStrokeColor="@color/white"
+        app:boxCornerRadiusTopStart="13dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="name"
+            android:hint="@string/name"
+            android:inputType="textPersonName"/>
 
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/emailBox"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@id/nameBox"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:autofillHints="emailAddress"
-        android:background="@drawable/rounded_corner"
-        android:hint="Type your Email"
-        android:inputType="textEmailAddress"
-        android:paddingStart="10dp" />
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:boxStrokeWidth="2dp"
+        app:boxCornerRadiusBottomEnd="13dp"
+        app:boxCornerRadiusBottomStart="13dp"
+        app:boxCornerRadiusTopEnd="13dp"
+        app:boxCornerRadiusTopStart="13dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="emailAddress"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            />
 
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/passBox"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_below="@id/emailBox"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:autofillHints="password"
-        android:background="@drawable/rounded_corner"
-        android:hint="Type your Password"
-        android:paddingStart="10dp" />
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        app:boxStrokeWidth="2dp"
+        app:boxCornerRadiusBottomEnd="13dp"
+        app:boxCornerRadiusBottomStart="13dp"
+        app:boxCornerRadiusTopEnd="13dp"
+        app:boxCornerRadiusTopStart="13dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="password"
+            android:hint="@string/password"
+            android:inputType="textPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
 
 
 
@@ -64,6 +90,8 @@
         android:text="Sign up"
         android:textColor="@color/white"
         android:id="@+id/signupBtn"/>
+
+
 
 
     <Button
@@ -106,4 +134,4 @@
         android:layout_marginBottom="20dp" />
 
 
-</RelativeLayout>
+</LinearLayout>

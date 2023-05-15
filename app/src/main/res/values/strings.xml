@@ -5,4 +5,11 @@
     <string name="app_logo">app_logo</string>
     <string name="write_your_message">Write your message</string>
     <string name="web_client_id">675425670311-l5rvt3jl6vtalrjveetoidb1vjvf6s8h.apps.googleusercontent.com</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign up</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="welcome">Welcome!</string>
+    <string name="sign_in">Sign in</string>
 </resources>

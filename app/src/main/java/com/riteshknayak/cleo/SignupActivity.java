@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -15,7 +14,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,7 +33,7 @@ public class SignupActivity extends AppCompatActivity {
 
     int RC_SIGN_IN = 2;
 
-//    private static final int REQ_ONE_TAP = 2;  // Can be any integer unique to the Activity.
+//    private static final int REQ_ONE_TAP = 2;   Can be any integer unique to the Activity.
 //    private final boolean showOneTapUI = true;
 
 
@@ -75,9 +73,7 @@ public class SignupActivity extends AppCompatActivity {
 
 
         //Signup with Google Button
-        binding.signInWithGoogle.setOnClickListener(v -> {
-            googleSignIn();
-        });
+        binding.signInWithGoogle.setOnClickListener(v -> googleSignIn());
 
 
         //Sign up with email Button
@@ -156,7 +152,6 @@ public class SignupActivity extends AppCompatActivity {
             }
         }
     }
-    // [END onactivityresult]
 
 
     private void firebaseAuthWithGoogle(String idToken) {
