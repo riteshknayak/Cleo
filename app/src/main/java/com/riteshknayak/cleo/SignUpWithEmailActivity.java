@@ -1,17 +1,18 @@
 package com.riteshknayak.cleo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.riteshknayak.cleo.databinding.ActivitySignUpWithEmailBinding;
-import com.riteshknayak.cleo.databinding.ActivitySignupBinding;
+
+import java.util.Objects;
 
 public class SignUpWithEmailActivity extends AppCompatActivity {
 
@@ -31,16 +32,16 @@ public class SignUpWithEmailActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        binding.signupBtn.setOnClickListener(v -> {
-            String email, pass, name;
+        binding.signUpBtn.setOnClickListener(v -> {
+            String email, pass;  // name; //TODO save these data to firebase
 
 
             if (isEmpty(binding.emailBox) || isEmpty(binding.passBox) || isEmpty(binding.nameBox)) {
                 Toast.makeText(getApplicationContext(), "Please provide the required data", Toast.LENGTH_SHORT).show();
             } else {
-                email = binding.emailBox.getText().toString();
-                pass = binding.passBox.getText().toString();
-                name = binding.nameBox.getText().toString();
+                email = Objects.requireNonNull(binding.emailBox.getText()).toString();
+                pass = Objects.requireNonNull(binding.passBox.getText()).toString();
+                //name = Objects.requireNonNull(binding.nameBox.getText()).toString();
 
                 mAuth.createUserWithEmailAndPassword(email, pass)
                         .addOnCompleteListener(this, task -> {
@@ -49,6 +50,7 @@ public class SignUpWithEmailActivity extends AppCompatActivity {
                                 Log.d(TAG, "createUserWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
 
+                                assert user != null;
                                 user.sendEmailVerification()
                                         .addOnCompleteListener(task1 -> {
                                             if (task1.isSuccessful()) {
@@ -66,6 +68,11 @@ public class SignUpWithEmailActivity extends AppCompatActivity {
                         });
 
             }
+        });
+
+        binding.signInBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), SignInWithEmailActivity.class);
+            startActivity(intent);
         });
 
     }
