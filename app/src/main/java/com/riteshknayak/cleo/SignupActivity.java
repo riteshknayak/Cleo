@@ -115,16 +115,6 @@ public class SignupActivity extends AppCompatActivity {
         });
 
 
-//        binding.checkVerificationBtn.setOnClickListener(v -> {
-//            mAuth.getCurrentUser().reload();
-//            if(mAuth.getCurrentUser().isEmailVerified()){
-//                Toast.makeText(getApplicationContext(),"Email is Verified",Toast.LENGTH_LONG).show();
-//                binding.veriText.setText("Email is Verified");
-//            }else{
-//                Toast.makeText(getApplicationContext(),"Email is not Verified "+mAuth.getCurrentUser().getEmail(),Toast.LENGTH_LONG).show();
-//                binding.veriText.setText("Email is not Verified");
-//            }
-//        });
     }
 
 

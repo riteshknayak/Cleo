@@ -14,4 +14,8 @@
     <string name="sign_in">Sign in</string>
     <string name="welcome_back">Welcome back!</string>
     <string name="don_t_have_an_account">Don\'t have an account? </string>
+    <string name="verification_note">Please check your inbox for a verification email from Cleo. If not found check your spam.</string>
+    <string name="email_is_not_verified">Email is Not verified!</string>
+    <string name="check_verification">Check Verification</string>
+    <string name="email_is_verified">Email is Verified</string>
 </resources>

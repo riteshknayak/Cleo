@@ -54,8 +54,11 @@ public class SignUpWithEmailActivity extends AppCompatActivity {
                                 user.sendEmailVerification()
                                         .addOnCompleteListener(task1 -> {
                                             if (task1.isSuccessful()) {
-                                                Log.d(TAG, "Email sent.");
-                                                Toast.makeText(getApplicationContext(),"Email Sent",Toast.LENGTH_LONG).show();
+                                                Log.d(TAG, "Verification email sent");
+                                                Toast.makeText(getApplicationContext(),"Verification email sent",Toast.LENGTH_LONG).show();
+
+                                                Intent intent = new Intent(getApplicationContext(), CheckVerificationActivity.class);
+                                                startActivity(intent);
                                             }
                                         });
 

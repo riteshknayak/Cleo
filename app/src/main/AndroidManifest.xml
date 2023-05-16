@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Cleo"
         tools:targetApi="31">
         <activity
+            android:name=".CheckVerificationActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignInWithEmailActivity"
             android:exported="false" />
         <activity
@@ -27,7 +30,7 @@
         </activity>
         <activity
             android:name=".SignupActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".SplashActivity"
             android:exported="true" />

@@ -45,7 +45,20 @@ public class SignInWithEmailActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d(TAG, "signInWithEmail:success");
+
                                 //FirebaseUser user = mAuth.getCurrentUser();
+
+                                Objects.requireNonNull(mAuth.getCurrentUser()).reload();
+                                if (mAuth.getCurrentUser().isEmailVerified()) {
+
+                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    startActivity(intent);
+
+                                } else {
+                                    Intent intent = new Intent(getApplicationContext(), CheckVerificationActivity.class);
+                                    startActivity(intent);
+
+                                }
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w(TAG, "signInWithEmail:failure", task.getException());
