@@ -196,6 +196,16 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
     @Override
     public void onUpOrCancelMotionEvent(ScrollState scrollState) {
     }
+
+    int counter = 0;
+    @Override
+    public void onBackPressed() {
+        counter++;
+        if (counter==2){
+            super.onBackPressed();
+            counter = 0;
+        };
+    }
 }
 
 

@@ -32,6 +32,8 @@ public class SignUpWithEmailActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+
+
         binding.signUpBtn.setOnClickListener(v -> {
             String email, pass;  // name; //TODO save these data to firebase
 
