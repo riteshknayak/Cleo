@@ -49,8 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/teal"
             android:background="@drawable/rounded_corner"
+            android:backgroundTint="@color/teal"
             android:fontFamily="@font/nunito_bold"
             android:text="@string/check_verification" />
 

@@ -2,96 +2,93 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SignupActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_marginTop="30dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        app:boxStrokeWidth="2dp"
         app:boxCornerRadiusBottomEnd="13dp"
         app:boxCornerRadiusBottomStart="13dp"
         app:boxCornerRadiusTopEnd="13dp"
-        app:boxStrokeColor="@color/white"
         app:boxCornerRadiusTopStart="13dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeWidth="2dp">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/nameBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="name"
             android:hint="@string/name"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_marginTop="15dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        app:boxStrokeWidth="2dp"
         app:boxCornerRadiusBottomEnd="13dp"
         app:boxCornerRadiusBottomStart="13dp"
         app:boxCornerRadiusTopEnd="13dp"
         app:boxCornerRadiusTopStart="13dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        app:boxStrokeWidth="2dp">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="emailAddress"
             android:hint="@string/email"
-            android:inputType="textEmailAddress"
-            />
+            android:inputType="textEmailAddress" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_marginTop="15dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
-        app:boxStrokeWidth="2dp"
         app:boxCornerRadiusBottomEnd="13dp"
         app:boxCornerRadiusBottomStart="13dp"
         app:boxCornerRadiusTopEnd="13dp"
         app:boxCornerRadiusTopStart="13dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        app:boxStrokeWidth="2dp">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="password"
             android:hint="@string/password"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
-
-
-
     <Button
+        android:id="@+id/signupBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corner"
+        android:layout_below="@id/passBox"
         android:layout_margin="20dp"
         android:autofillHints="password"
-        android:layout_below="@id/passBox"
+        android:background="@drawable/rounded_corner"
         android:paddingStart="10dp"
         android:text="Sign up"
-        android:textColor="@color/white"
-        android:id="@+id/signupBtn"/>
-
-
+        android:textColor="@color/white" />
 
 
     <Button
@@ -101,12 +98,12 @@
         android:layout_below="@id/signupBtn"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:visibility="invisible"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/rounded_corner"
         android:text="check verfication"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:visibility="invisible" />
 
 
     <Button
@@ -116,11 +113,11 @@
         android:layout_below="@id/checkVerificationBtn"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:textColor="@color/white"
-        android:visibility="invisible"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
-        android:text="" />
+        android:text=""
+        android:textColor="@color/white"
+        android:visibility="invisible" />
 
 
     <com.google.android.gms.common.SignInButton
