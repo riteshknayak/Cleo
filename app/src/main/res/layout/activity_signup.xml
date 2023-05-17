@@ -4,131 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".SignupActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="100dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/google_login_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        app:boxCornerRadiusBottomEnd="13dp"
-        app:boxCornerRadiusBottomStart="13dp"
-        app:boxCornerRadiusTopEnd="13dp"
-        app:boxCornerRadiusTopStart="13dp"
-        app:boxStrokeColor="@color/white"
-        app:boxStrokeWidth="2dp">
+        android:layout_height="55dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/rounded_corner_no_stroke"
+        android:drawableLeft="@drawable/google_icon"
+        android:fontFamily="@font/nunito_bold"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp"
+        android:text="@string/continue_with_google"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        tools:ignore="RtlHardcoded" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/nameBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="name"
-            android:hint="@string/name"
-            android:inputType="textPersonName" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/email_sign_in"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        app:boxCornerRadiusBottomEnd="13dp"
-        app:boxCornerRadiusBottomStart="13dp"
-        app:boxCornerRadiusTopEnd="13dp"
-        app:boxCornerRadiusTopStart="13dp"
-        app:boxStrokeWidth="2dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="emailAddress"
-            android:hint="@string/email"
-            android:inputType="textEmailAddress" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        app:boxCornerRadiusBottomEnd="13dp"
-        app:boxCornerRadiusBottomStart="13dp"
-        app:boxCornerRadiusTopEnd="13dp"
-        app:boxCornerRadiusTopStart="13dp"
-        app:boxStrokeWidth="2dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/passBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="password"
-            android:hint="@string/password"
-            android:inputType="textPassword" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <Button
-        android:id="@+id/signupBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/passBox"
-        android:layout_margin="20dp"
-        android:autofillHints="password"
-        android:background="@drawable/rounded_corner"
-        android:paddingStart="10dp"
-        android:text="Sign up"
-        android:textColor="@color/white" />
-
-
-    <Button
-        android:id="@+id/checkVerificationBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/signupBtn"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/rounded_corner"
-        android:text="check verfication"
+        android:layout_height="55dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/rounded_corner_no_stroke_bg_color_light"
+        android:fontFamily="@font/nunito_bold"
+        android:padding="8dp"
+        android:text="@string/continue_with_email"
+        android:textAllCaps="false"
         android:textColor="@color/white"
-        android:visibility="invisible" />
-
-
-    <Button
-        android:id="@+id/veriText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/checkVerificationBtn"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:text=""
-        android:textColor="@color/white"
-        android:visibility="invisible" />
-
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_with_google"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/veriText"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp" />
+        android:textSize="16sp" />
 
 
 </LinearLayout>

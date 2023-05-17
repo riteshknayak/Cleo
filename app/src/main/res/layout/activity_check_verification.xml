@@ -52,7 +52,8 @@
             android:background="@drawable/rounded_corner"
             android:backgroundTint="@color/teal"
             android:fontFamily="@font/nunito_bold"
-            android:text="@string/check_verification" />
+            android:text="@string/check_verification"
+            android:textColor="@color/white"/>
 
 
     </LinearLayout>

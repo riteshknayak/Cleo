@@ -45,21 +45,19 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(view);
 
 
-
         //Initialise FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
-
 
 
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        if(currentUser != null){
-            Toast.makeText(getApplicationContext(),"Sign in Successful",Toast.LENGTH_SHORT).show();
+        if (currentUser != null) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
         } else {
-            Toast.makeText(getApplicationContext(), "Please sign in" , Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please sign in", Toast.LENGTH_SHORT).show();
         }
-
 
 
         //Setting up Google Sign in
@@ -73,48 +71,12 @@ public class SignupActivity extends AppCompatActivity {
 
 
         //Signup with Google Button
-        binding.signInWithGoogle.setOnClickListener(v -> googleSignIn());
+        binding.googleLoginBtn.setOnClickListener(v -> googleSignIn());
 
 
-        //Sign up with email Button
-        binding.signupBtn.setOnClickListener(v -> {
-            String email, pass, name;
-
-
-            if (isEmpty(binding.emailBox) || isEmpty(binding.passBox) || isEmpty(binding.nameBox)) {
-                Toast.makeText(SignupActivity.this, "Please provide the required data", Toast.LENGTH_SHORT).show();
-            } else {
-                email = binding.emailBox.getText().toString();
-                pass = binding.passBox.getText().toString();
-                name = binding.nameBox.getText().toString();
-
-                mAuth.createUserWithEmailAndPassword(email, pass)
-                        .addOnCompleteListener(this, task -> {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Log.d(TAG, "createUserWithEmail:success");
-                                FirebaseUser user = mAuth.getCurrentUser();
-
-                                user.sendEmailVerification()
-                                        .addOnCompleteListener(task1 -> {
-                                            if (task1.isSuccessful()) {
-                                                Log.d(TAG, "Email sent.");
-                                                Toast.makeText(getApplicationContext(),"Email Sent",Toast.LENGTH_LONG).show();
-                                            }
-                                        });
-
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(SignupActivity.this, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        });
-
-            }
+        binding.emailSignIn.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), SignUpWithEmailActivity.class));
         });
-
-
     }
 
 
@@ -153,19 +115,14 @@ public class SignupActivity extends AppCompatActivity {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithCredential:success");
                         FirebaseUser user = mAuth.getCurrentUser();
+
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w(TAG, "signInWithCredential:failure", task.getException());
                     }
                 });
     }
-    // [END auth_with_google]
-
-
-    private boolean isEmpty(EditText editText) {
-        return editText.getText().toString().trim().length() == 0;
-    }
-
-
 
 }
