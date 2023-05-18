@@ -1,6 +1,8 @@
 package com.riteshknayak.cleo;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +21,10 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.riteshknayak.cleo.databinding.ActivitySignupBinding;
+
+import java.util.Objects;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -33,6 +38,8 @@ public class SignupActivity extends AppCompatActivity {
 
     int RC_SIGN_IN = 2;
 
+    FirebaseFirestore database;
+
 //    private static final int REQ_ONE_TAP = 2;   Can be any integer unique to the Activity.
 //    private final boolean showOneTapUI = true;
 
@@ -40,13 +47,19 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        //Setup ViewBinding
         binding = ActivitySignupBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
+        setContentView(binding.getRoot());
 
 
         //Initialise FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
+
+
+        //Initialise Firestore
+        database = FirebaseFirestore.getInstance();
 
 
         // Check if user is signed in (non-null) and update UI accordingly.
@@ -98,6 +111,8 @@ public class SignupActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
                 firebaseAuthWithGoogle(account.getIdToken());
+
+
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
@@ -114,8 +129,27 @@ public class SignupActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithCredential:success");
-                        FirebaseUser user = mAuth.getCurrentUser();
+                        Toast.makeText(getApplicationContext(), "Sign in successful", Toast.LENGTH_SHORT).show();
 
+                        //get the new FirebaseUser
+                        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                        assert firebaseUser != null;
+                        User user = new User(firebaseUser.getDisplayName(), firebaseUser.getUid(), firebaseUser.getEmail(), null, 3, true);
+
+                        //Add new user to database
+                        database.collection("users")
+                                .document(firebaseUser.getUid())
+                                .set(user).addOnCompleteListener(task1 -> {
+                                    if (task1.isSuccessful()) {
+                                        finish();
+                                    } else {
+                                        Toast.makeText(SignupActivity.this, Objects.requireNonNull(task1.getException()).getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+
+                                });
+
+
+                        //Send user to MainActivity
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                     } else {
