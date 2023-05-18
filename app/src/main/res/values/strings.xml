@@ -20,4 +20,5 @@
     <string name="email_is_verified">Email is Verified</string>
     <string name="continue_with_google">Continue with Google</string>
     <string name="continue_with_email">Continue with Email</string>
+    <string name="settings">Settings</string>
 </resources>

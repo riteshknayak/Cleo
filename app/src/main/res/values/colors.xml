@@ -9,7 +9,8 @@
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="grey">#B2FFFFFF</color>
+    <color name="off_white">#FFFFFF</color>
+    <color name="grey">#ACAAAA</color>
     <color name="red">#f70000</color>
     <color name="green">#BA10CA44</color>
 
