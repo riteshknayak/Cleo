@@ -57,6 +57,12 @@ dependencies {
     implementation "com.github.skydoves:powermenu:2.0.6"
 
 
+    //Google play billing library
+    def billing_version = "6.0.0"
+
+    implementation "com.android.billingclient:billing:$billing_version"
+
+
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
