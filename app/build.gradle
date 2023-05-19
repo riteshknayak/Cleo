@@ -53,6 +53,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:20.5.0'
 
 
+    //Popup menu
+    implementation "com.github.skydoves:powermenu:2.0.6"
 
 
     implementation 'androidx.appcompat:appcompat:1.6.1'

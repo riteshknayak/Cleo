@@ -13,6 +13,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.riteshknayak.cleo.databinding.ActivitySignUpWithEmailBinding;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class SignUpWithEmailActivity extends AppCompatActivity {
@@ -60,7 +62,7 @@ public class SignUpWithEmailActivity extends AppCompatActivity {
                                 //get the new FirebaseUser
                                 FirebaseUser firebaseUser = mAuth.getCurrentUser();
                                 assert firebaseUser != null;
-                                User user = new User(firebaseUser.getDisplayName(), firebaseUser.getUid(), email, password, 3, true);
+                                User user = new User(firebaseUser.getDisplayName(), firebaseUser.getUid(), email, password, 3, true, false);
 
                                 //Add new user to database
                                 database.collection("users")
@@ -73,6 +75,12 @@ public class SignUpWithEmailActivity extends AppCompatActivity {
                                             }
 
                                         });
+
+                                Map<String, Object> isPremiumUser = new HashMap<>();
+                                isPremiumUser.put("premiumUser", false);
+                                database.collection("users")
+                                        .document(firebaseUser.getUid())
+                                        .update(isPremiumUser);
 
 
 

@@ -24,6 +24,8 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.riteshknayak.cleo.databinding.ActivitySignupBinding;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class SignupActivity extends AppCompatActivity {
@@ -134,7 +136,7 @@ public class SignupActivity extends AppCompatActivity {
                         //get the new FirebaseUser
                         FirebaseUser firebaseUser = mAuth.getCurrentUser();
                         assert firebaseUser != null;
-                        User user = new User(firebaseUser.getDisplayName(), firebaseUser.getUid(), firebaseUser.getEmail(), null, 3, true);
+                        User user = new User(firebaseUser.getDisplayName(), firebaseUser.getUid(), firebaseUser.getEmail(), null, 3, true, false);
 
                         //Add new user to database
                         database.collection("users")
@@ -147,6 +149,12 @@ public class SignupActivity extends AppCompatActivity {
                                     }
 
                                 });
+
+                        Map<String, Object> isPremiumUser = new HashMap<>();
+                        isPremiumUser.put("premiumUser", false);
+                        database.collection("users")
+                                .document(firebaseUser.getUid())
+                                .update(isPremiumUser);
 
 
                         //Send user to MainActivity

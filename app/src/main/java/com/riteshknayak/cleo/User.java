@@ -3,15 +3,24 @@ package com.riteshknayak.cleo;
 public class User {
     private String name, uid, email, pass;
     private int credits;
-    private Boolean newUser;
+    private Boolean newUser, premiumUser;
 
-    public User(String name, String uid, String email, String pass, int credits, Boolean newUser) {
+    public User(String name, String uid, String email, String pass, int credits, Boolean newUser, Boolean premiumUser) {
         this.name = name;
         this.uid = uid;
         this.email = email;
         this.pass = pass;
         this.credits = credits;
         this.newUser = newUser;
+        this.premiumUser = premiumUser;
+    }
+
+    public Boolean getPremium() {
+        return premiumUser;
+    }
+
+    public void setPremium(Boolean premiumUser) {
+        this.premiumUser = premiumUser;
     }
 
     public String getName() {
