@@ -1,9 +1,11 @@
 package com.riteshknayak.cleo;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -58,6 +60,10 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
 
     Dialog noCreditsDialog;
 
+    Button buyPremiumButton;
+
+    Button watchAdButton;
+
 
     //Initialising JSON
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
@@ -72,6 +78,10 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+
+
+        //setting up no credits dialog
         noCreditsDialog = new Dialog(this);
         noCreditsDialog.setContentView(R.layout.no_credits_dialog);
         noCreditsDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -189,6 +199,15 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
                 binding.credits.setText(Integer.toString(credits));
             }
 
+        });
+
+        //no credits dialog buttons
+        buyPremiumButton = noCreditsDialog.findViewById(R.id.buy_premium_btn);
+        watchAdButton = noCreditsDialog.findViewById(R.id.watch_ad_btn);
+
+
+        buyPremiumButton.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), PurchasePremiumActivity.class));
         });
     }
 

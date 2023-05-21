@@ -20,8 +20,8 @@ android {
         applicationId "com.riteshknayak.cleo"
         minSdk 24
         targetSdk 33
-        versionCode 2
-        versionName "1.1"
+        versionCode 3
+        versionName "1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -51,16 +51,15 @@ dependencies {
 
     //Google Play service for signup with Google
     implementation 'com.google.android.gms:play-services-auth:20.5.0'
-
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
+    implementation 'com.google.guava:guava:24.1-jre'
 
     //Popup menu
     implementation "com.github.skydoves:powermenu:2.0.6"
 
 
     //Google play billing library
-    def billing_version = "6.0.0"
-
-    implementation "com.android.billingclient:billing:$billing_version"
+    implementation 'com.anjlab.android.iab.v3:library:2.0.3'
 
 
     implementation 'androidx.appcompat:appcompat:1.6.1'

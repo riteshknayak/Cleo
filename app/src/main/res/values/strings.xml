@@ -25,4 +25,7 @@
     <string name="no_credits_dialog_text">We need money to pay our API bills. Support us by buying our premium membership or watch an ad to get 3 free credits</string>
     <string name="buy_premium">Buy Premium</string>
     <string name="watch_ad">Watch AD</string>
+
+    <string name="play_console_license">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgvmhPdPKCRBiJfqQFOZJVXU+lV4LYBwkCgFcIpKyF1QV5uVG5bHfTfrNXrNpfpJRy+z+kh1jA/mcA7U8WhSkEL3iisjeV0vg+cjQWOISrlok1Ihfv82j6dvpmKZ6aEfHLR4nlWfNK4n0cEMbKGMp0+Fhstp3r1eQvc6BsK7pOjrnB7cXpMwFtlc+TU/UXYKUeLPb5onMwWVC9kQCJn6taJ60wlQufenY4+T5BNkHgpZiCAjPahQpMJTB4lAk51o2M/+YfN+hz0fYcLpzn/PmmOVUAe5+J6PqUECwb1uv98bFWL1o+t8sYURtxpROF302cJhe3ROEoNFdCFEjfuRyVwIDAQAB</string>
+    <string name="product_id">monthly_premium</string>
 </resources>

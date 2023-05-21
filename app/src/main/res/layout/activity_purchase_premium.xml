@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".PurchasePremiumActivity">
+
+    <Button
+        android:id="@+id/premiumMonthlyBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="get Premium monthly" />
+
+<!--    <Button-->
+<!--        android:id="@+id/premiumYearlyBtn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="get Premium monthly" />-->
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/productOne"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="product 1"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:padding="10dp"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/productOnePrice"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="product 1 price"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:padding="10dp"/>-->
+
+
+
+<!--    </LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/productTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="product 2"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:padding="10dp"/>
+
+        <TextView
+            android:id="@+id/productTwoPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="product 2 price"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:padding="10dp"/>
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/purchaseStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="not purchased anything"
+        android:textSize="22sp"
+        android:textColor="@color/black"/>
+
+
+</LinearLayout>
