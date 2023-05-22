@@ -2,12 +2,9 @@ package com.riteshknayak.cleo;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
@@ -16,10 +13,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.riteshknayak.cleo.databinding.ActivityMainBinding;
-import com.skydoves.powermenu.MenuAnimation;
-import com.skydoves.powermenu.PowerMenu;
-import com.skydoves.powermenu.PowerMenuItem;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
