@@ -42,10 +42,10 @@
         android:backgroundTint="@color/bg_color_light">
 
         <Button
-            android:id="@+id/buy_premium_btn"
+            android:id="@+id/getProButton"
             android:layout_width="130dp"
             android:layout_height="40dp"
-            android:text="@string/buy_premium"
+            android:text="@string/get_pro"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="13sp"
@@ -55,7 +55,7 @@
             android:layout_marginRight="10dp"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button"
+            android:id="@+id/watchAdButton"
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:text="@string/watch_ad"

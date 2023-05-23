@@ -95,4 +95,8 @@ dependencies {
     implementation "com.github.ksoichiro:android-observablescrollview:1.6.0"
 
 
+    //Google admob
+    implementation 'com.google.android.gms:play-services-ads:22.1.0'
+
+
 }

@@ -1,7 +1,12 @@
 package com.riteshknayak.cleo;
 
 import android.app.Dialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +14,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.OnUserEarnedRewardListener;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.gms.ads.rewarded.RewardItem;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -51,6 +66,12 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
 
     Dialog noCreditsDialog;
 
+    private AdView mAdView;
+
+    Button watchAdButton;
+
+    Button GetCleoProButton;
+
 
     //Initialising JSON
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
@@ -65,15 +86,10 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        noCreditsDialog = new Dialog(this);
-        noCreditsDialog.setContentView(R.layout.no_credits_dialog);
-        noCreditsDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
 
         //Setting up ViewBinding
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
 
         //Initialise Firestore database
         database = FirebaseFirestore.getInstance();
@@ -84,6 +100,106 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
         FirebaseUser firebaseUser = auth.getCurrentUser();
         assert firebaseUser != null;
         uid = firebaseUser.getUid();
+
+        noCreditsDialog = new Dialog(this);
+        noCreditsDialog.setContentView(R.layout.no_credits_dialog);
+        noCreditsDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
+        watchAdButton = noCreditsDialog.findViewById(R.id.watchAdButton);
+        GetCleoProButton = noCreditsDialog.findViewById(R.id.getProButton);
+
+        //Admob Initialisation
+        MobileAds.initialize(this, initializationStatus -> {
+        });
+
+        Constants.loadRewardedAd(MainActivity.this);
+
+        watchAdButton.setOnClickListener(v -> {
+            if (Constants.adLoaded){
+                Constants.rewardedAd.show(MainActivity.this, rewardItem -> {
+                    // Handle the reward.
+                    Log.d("admob", "The user earned the reward.");
+                    int rewardAmount = rewardItem.getAmount();
+                    String rewardType = rewardItem.getType();
+
+                    credits = credits+3;
+                    Toast.makeText(getApplicationContext(), "3 credits added", Toast.LENGTH_SHORT).show();
+                    binding.credits.setText(Integer.toString(credits));
+
+                    Map<String, Object> creditsData = new HashMap<>();
+                    creditsData.put("credits", credits);
+
+                    database.collection("users")
+                            .document(uid)
+                            .update(creditsData);
+
+
+                    Constants.loadRewardedAd(MainActivity.this);
+
+                    noCreditsDialog.dismiss();
+
+                });
+            } else {
+                Toast.makeText(getApplicationContext(), "Sorry, ad is not loaded yet", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        GetCleoProButton.setOnClickListener(v -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.riteshknayak.cleopro"));
+            startActivity(browserIntent);
+
+        });
+
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+                super.onAdClicked();
+
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+
+            }
+
+            @Override
+            public void onAdFailedToLoad(LoadAdError adError) {
+                // Code to be executed when an ad request fails.
+                super.onAdFailedToLoad(adError);
+                mAdView.loadAd(adRequest);
+            }
+
+            @Override
+            public void onAdImpression() {
+                // Code to be executed when an impression is recorded
+                // for an ad.
+            }
+
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+                super.onAdLoaded();
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+                super.onAdOpened();
+            }
+        });
+
+
+
 
 
         //Set credits
@@ -136,29 +252,6 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
                 noCreditsDialog.show();
 
 
-//                PowerMenu powerMenu = new PowerMenu.Builder(MainActivity.this)
-//                        .setHeaderView(R.layout.no_credits_dialog_header) // header used for title
-//                        .setFooterView(R.layout.no_credits_dialog_footer) // footer used for yes and no buttons
-//                        .addItem(new PowerMenuItem("This is DialogPowerMenu", false)) // this is body
-//                        .setLifecycleOwner(lifecycleOwner)
-//                        .setAnimation(MenuAnimation.SHOW_UP_CENTER)
-//                        .setMenuRadius(10f)
-//                        .setMenuShadow(10f)
-//                        .setWidth(600)
-//                        .setSelectedEffect(false)
-//                        .build();
-//
-//
-//
-////                // Get the root view of your activity or the view that you want to use as the parent
-////                View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
-////
-////                // Calculate the center coordinates of the screen
-////                int centerX = rootView.getWidth() / 2;
-////                int centerY = rootView.getHeight() / 2;
-////
-////                // Show the PowerMenu at the center coordinates
-////                powerMenu.showAtLocation(rootView, Gravity.CENTER, centerX, centerY);
 
 
             } else {
