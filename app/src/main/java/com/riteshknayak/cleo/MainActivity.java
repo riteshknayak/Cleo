@@ -120,9 +120,8 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
                     // Handle the reward.
                     Log.d("admob", "The user earned the reward.");
                     int rewardAmount = rewardItem.getAmount();
-                    String rewardType = rewardItem.getType();
 
-                    credits = credits+3;
+                    credits = credits+rewardAmount;
                     Toast.makeText(getApplicationContext(), "3 credits added", Toast.LENGTH_SHORT).show();
                     binding.credits.setText(Integer.toString(credits));
 

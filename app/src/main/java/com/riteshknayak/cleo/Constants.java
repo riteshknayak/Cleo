@@ -19,7 +19,7 @@ public class Constants  {
 
     public static void loadRewardedAd(Context context){
         RewardedAd.load(context,
-                "ca-app-pub-3940256099942544/5224354917",
+                "ca-app-pub-9592447067025157/6227800060",
                 new AdRequest.Builder().build()
                 , new RewardedAdLoadCallback() {
                     @Override
