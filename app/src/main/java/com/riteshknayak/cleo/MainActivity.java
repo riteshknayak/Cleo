@@ -28,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.riteshknayak.cleo.databinding.ActivityMainBinding;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -115,13 +116,13 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
         Constants.loadRewardedAd(MainActivity.this);
 
         watchAdButton.setOnClickListener(v -> {
-            if (Constants.adLoaded){
+            if (Constants.adLoaded) {
                 Constants.rewardedAd.show(MainActivity.this, rewardItem -> {
                     // Handle the reward.
                     Log.d("admob", "The user earned the reward.");
                     int rewardAmount = rewardItem.getAmount();
 
-                    credits = credits+rewardAmount;
+                    credits = credits + rewardAmount;
                     Toast.makeText(getApplicationContext(), "3 credits added", Toast.LENGTH_SHORT).show();
                     binding.credits.setText(Integer.toString(credits));
 
@@ -198,9 +199,6 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
         });
 
 
-
-
-
         //Set credits
         database.collection("users")
                 .document(uid)
@@ -246,32 +244,32 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
 
         //Send Button
         binding.sendBtn.setOnClickListener((v) -> {
-            if (credits == 0) {
+            String question = binding.messageEditText.getText().toString().trim();
 
+            if (credits == 0) {
                 noCreditsDialog.show();
 
-
-
-
             } else {
-                String question = binding.messageEditText.getText().toString().trim();
-                addToChat(question, Message.SENT_BY_ME);
-                binding.messageEditText.setText("");
-                callAPI(question);
+                if (!question.equals("")) {
+                    addToChat(question, Message.SENT_BY_ME);
+                    binding.messageEditText.setText("");
+                    callAPI(question);
 
+                    databaseHelper.messagesDao().addMessage(new Message(question, Message.SENT_BY_ME));
 
-                databaseHelper.messagesDao().addMessage(new Message(question, Message.SENT_BY_ME));
+                    credits = credits - 1;
 
-                credits = credits - 1;
+                    Map<String, Object> creditsData = new HashMap<>();
+                    creditsData.put("credits", credits);
 
-                Map<String, Object> creditsData = new HashMap<>();
-                creditsData.put("credits", credits);
+                    database.collection("users")
+                            .document(firebaseUser.getUid())
+                            .update(creditsData);
 
-                database.collection("users")
-                        .document(firebaseUser.getUid())
-                        .update(creditsData);
-
-                binding.credits.setText(Integer.toString(credits));
+                    binding.credits.setText(Integer.toString(credits));
+                }else {
+                    Toast.makeText(getApplicationContext(),"Please write a message",Toast.LENGTH_SHORT).show();
+                }
             }
 
         });
