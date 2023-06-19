@@ -43,7 +43,7 @@ public class SignUpWithEmailActivity extends AppCompatActivity {
         database = FirebaseFirestore.getInstance();
 
         binding.signUpBtn.setOnClickListener(v -> {
-            String email, password;  // name; //TODO save these data to firebase
+            String email, password, name;  // name; //TODO save these data to firebase
 
 
             if (isEmpty(binding.emailBox) || isEmpty(binding.passBox) || isEmpty(binding.nameBox)) {
@@ -51,7 +51,7 @@ public class SignUpWithEmailActivity extends AppCompatActivity {
             } else {
                 email = Objects.requireNonNull(binding.emailBox.getText()).toString();
                 password = Objects.requireNonNull(binding.passBox.getText()).toString();
-                //name = Objects.requireNonNull(binding.nameBox.getText()).toString();
+                name = Objects.requireNonNull(binding.nameBox.getText()).toString();
 
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, task -> {
@@ -62,7 +62,7 @@ public class SignUpWithEmailActivity extends AppCompatActivity {
                                 //get the new FirebaseUser
                                 FirebaseUser firebaseUser = mAuth.getCurrentUser();
                                 assert firebaseUser != null;
-                                User user = new User(firebaseUser.getDisplayName(), firebaseUser.getUid(), email, password, 3, true, false);
+                                User user = new User(name, firebaseUser.getUid(), email, password, 5, true, false);
 
                                 //Add new user to database
                                 database.collection("users")
@@ -81,6 +81,12 @@ public class SignUpWithEmailActivity extends AppCompatActivity {
                                 database.collection("users")
                                         .document(firebaseUser.getUid())
                                         .update(isPremiumUser);
+
+                                Map<String, Object> name1 = new HashMap<>();
+                                name1.put("name", name);
+                                database.collection("users")
+                                        .document(firebaseUser.getUid())
+                                        .update(name1);
 
 
 

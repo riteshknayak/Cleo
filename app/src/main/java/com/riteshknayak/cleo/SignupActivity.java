@@ -86,8 +86,10 @@ public class SignupActivity extends AppCompatActivity {
 
 
         //Signup with Google Button
-        binding.googleLoginBtn.setOnClickListener(v -> googleSignIn());
-
+        binding.googleLoginBtn.setOnClickListener(v -> {
+            googleSignIn();
+            binding.googleLoginBtn.setText("Loading...");
+        });
 
         binding.emailSignIn.setOnClickListener(v -> {
             startActivity(new Intent(getApplicationContext(), SignUpWithEmailActivity.class));
@@ -118,6 +120,8 @@ public class SignupActivity extends AppCompatActivity {
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
+                Toast.makeText(getApplicationContext(), "Signing in failed!", Toast.LENGTH_LONG).show();
+                binding.googleLoginBtn.setText(getString(R.string.continue_with_google));
             }
         }
     }
@@ -136,7 +140,7 @@ public class SignupActivity extends AppCompatActivity {
                         //get the new FirebaseUser
                         FirebaseUser firebaseUser = mAuth.getCurrentUser();
                         assert firebaseUser != null;
-                        User user = new User(firebaseUser.getDisplayName(), firebaseUser.getUid(), firebaseUser.getEmail(), null, 3, true, false);
+                        User user = new User(firebaseUser.getDisplayName(), firebaseUser.getUid(), firebaseUser.getEmail(), null, 5, true, false);
 
                         //Add new user to database
                         database.collection("users")
