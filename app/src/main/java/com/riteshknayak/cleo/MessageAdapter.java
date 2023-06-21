@@ -1,10 +1,17 @@
 package com.riteshknayak.cleo;
 
+import static android.content.Context.CLIPBOARD_SERVICE;
+
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,10 +40,21 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
             holder.leftChatView.setVisibility(View.GONE);
             holder.rightChatView.setVisibility(View.VISIBLE);
             holder.rightTextView.setText(message.getMessage());
+
+
+
         }else{
             holder.rightChatView.setVisibility(View.GONE);
             holder.leftChatView.setVisibility(View.VISIBLE);
             holder.leftTextView.setText(message.getMessage());
+
+            holder.copyButton.setOnClickListener(v -> {
+                ClipboardManager clipboard = (ClipboardManager) holder.itemView.getContext().getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("label", message.getMessage());
+                clipboard.setPrimaryClip(clip);
+
+                Toast.makeText(holder.itemView.getContext(), "Text copied to clipboard", Toast.LENGTH_LONG).show();
+            });
         }
     }
 
@@ -48,6 +66,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
     public class MyViewHolder extends RecyclerView.ViewHolder{
         LinearLayout leftChatView,rightChatView;
         TextView leftTextView,rightTextView;
+        ImageView copyButton;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -55,6 +74,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
             rightChatView = itemView.findViewById(R.id.right_chat_view);
             leftTextView = itemView.findViewById(R.id.left_chat_text_view);
             rightTextView = itemView.findViewById(R.id.right_chat_text_view);
+            copyButton = itemView.findViewById(R.id.copy_button);
         }
     }
 }

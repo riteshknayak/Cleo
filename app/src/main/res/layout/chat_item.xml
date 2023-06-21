@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:orientation="vertical"
         android:background="@drawable/chat_item_bot"
         android:padding="10dp">
 
@@ -20,7 +21,16 @@
             android:textColor="@color/white"
             android:textIsSelectable="true"
             android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/copy_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_content_copy_24"
+            android:layout_gravity="right"
+            android:layout_margin="7dp"/>
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/right_chat_view"

@@ -117,13 +117,14 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
                     Log.d("admob", "The user earned the reward.");
                     int rewardAmount = rewardItem.getAmount();
 
+                    //Provide the reward
                     credits = credits + rewardAmount;
-                    Toast.makeText(getApplicationContext(), "3 credits added", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "5 credits added", Toast.LENGTH_SHORT).show();
                     binding.credits.setText(Integer.toString(credits));
 
+                    //change data in database
                     Map<String, Object> creditsData = new HashMap<>();
                     creditsData.put("credits", credits);
-
                     database.collection("users")
                             .document(uid)
                             .update(creditsData);

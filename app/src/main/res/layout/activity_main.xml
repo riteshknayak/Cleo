@@ -108,15 +108,14 @@
         android:layout_below="@+id/app_bar_layout"
         android:background="@color/bg_color" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/welcome_text"
-        android:layout_centerInParent="true"
-        android:text="Welcome to Easy ChatGPT\nTry it out now"
-        android:gravity="center"
-        android:textSize="28dp"
-        />
+<!--    <TextView-->
+<!--        android:id="@+id/welcome_text"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Welcome to ChatGPT\nTry it out now"-->
+<!--        android:textSize="28dp" />-->
 
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
