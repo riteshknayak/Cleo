@@ -19,6 +19,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -105,8 +106,15 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
         GetCleoProButton = noCreditsDialog.findViewById(R.id.getProButton);
 
         //Admob Initialisation
-        MobileAds.initialize(this, initializationStatus -> {
-        });
+        MobileAds.initialize(this, initializationStatus -> {});
+
+        RequestConfiguration requestConfiguration = MobileAds.getRequestConfiguration()
+                .toBuilder()
+                .setTagForChildDirectedTreatment(
+                        RequestConfiguration.TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE)
+                .setMaxAdContentRating(RequestConfiguration.MAX_AD_CONTENT_RATING_G)
+                .build();
+        MobileAds.setRequestConfiguration(requestConfiguration);
 
         Constants.loadRewardedAd(MainActivity.this);
 
