@@ -19,15 +19,16 @@ android {
         applicationId "com.riteshknayak.cleo"
         minSdk 24
         targetSdk 34
-        versionCode 8
-        versionName "1.7"
+        versionCode 9
+        versionName "1.8"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -49,7 +50,7 @@ dependencies {
 
 
     //Google Play service for signup with Google
-    implementation 'com.google.android.gms:play-services-auth:20.5.0'
+    implementation 'com.google.android.gms:play-services-auth:20.6.0'
 
 
 
@@ -60,10 +61,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
-    implementation 'com.google.android.gms:play-services-auth:20.5.0'
+    implementation 'com.google.android.gms:play-services-auth:20.6.0'
 
 
-    def room_version = "2.5.1"
+    def room_version = "2.5.2"
 
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
@@ -74,19 +75,19 @@ dependencies {
 //    ksp "androidx.room:room-compiler:$room_version"
 
     // optional - RxJava2 support for Room
-    implementation "androidx.room:room-rxjava2:$room_version"
+    //implementation "androidx.room:room-rxjava2:$room_version"
 
     // optional - RxJava3 support for Room
-    implementation "androidx.room:room-rxjava3:$room_version"
+    //implementation "androidx.room:room-rxjava3:$room_version"
 
-    // optional - Guava support for Room, including Optional and ListenableFuture
-    implementation "androidx.room:room-guava:$room_version"
+    // opti//onal - Guava support for Room, including Optional and ListenableFuture
+    //implementation "androidx.room:room-guava:$room_version"
 
     // optional - Test helpers
-    testImplementation "androidx.room:room-testing:$room_version"
+    //testImplementation "androidx.room:room-testing:$room_version"
 
     // optional - Paging 3 Integration
-    implementation "androidx.room:room-paging:$room_version"
+    //implementation "androidx.room:room-paging:$room_version"
 
 
 

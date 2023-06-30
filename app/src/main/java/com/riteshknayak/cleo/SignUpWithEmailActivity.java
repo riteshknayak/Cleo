@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.riteshknayak.cleo.Models.User;
 import com.riteshknayak.cleo.databinding.ActivitySignUpWithEmailBinding;
 
 import java.util.HashMap;

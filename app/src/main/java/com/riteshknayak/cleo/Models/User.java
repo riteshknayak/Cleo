@@ -1,4 +1,4 @@
-package com.riteshknayak.cleo;
+package com.riteshknayak.cleo.Models;
 
 public class User {
     private String name, uid, email, pass;
