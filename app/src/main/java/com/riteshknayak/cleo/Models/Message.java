@@ -1,4 +1,4 @@
-package com.riteshknayak.cleo;
+package com.riteshknayak.cleo.Models;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;

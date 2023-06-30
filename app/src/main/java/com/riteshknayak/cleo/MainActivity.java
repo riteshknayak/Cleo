@@ -23,6 +23,7 @@ import com.google.android.gms.ads.RequestConfiguration;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.riteshknayak.cleo.Models.Message;
 import com.riteshknayak.cleo.databinding.ActivityMainBinding;
 
 import org.json.JSONArray;
