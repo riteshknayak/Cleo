@@ -1,8 +1,6 @@
 package com.riteshknayak.cleo;
 
 import android.app.Dialog;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -14,16 +12,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.RequestConfiguration;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.riteshknayak.cleo.Adapters.MessageAdapter;
 import com.riteshknayak.cleo.Models.Message;
+import com.riteshknayak.cleo.Repo.DatabaseHelper;
+import com.riteshknayak.cleo.Utils.Constants;
 import com.riteshknayak.cleo.databinding.ActivityMainBinding;
 
 import org.json.JSONArray;
@@ -64,11 +61,11 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
 
     Dialog noCreditsDialog;
 
-    private AdView mAdView;
+//    private AdView mAdView;
 
     Button watchAdButton;
 
-    Button GetCleoProButton;
+//    Button GetCleoProButton;
 
 
     //Initialising JSON
@@ -104,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
         noCreditsDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
         watchAdButton = noCreditsDialog.findViewById(R.id.watchAdButton);
-        GetCleoProButton = noCreditsDialog.findViewById(R.id.getProButton);
+//        GetCleoProButton = noCreditsDialog.findViewById(R.id.getProButton);
 
         //Admob Initialisation
         MobileAds.initialize(this, initializationStatus -> {});
@@ -150,58 +147,12 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
         });
 
 
-        GetCleoProButton.setOnClickListener(v -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.riteshknayak.cleopro"));
-            startActivity(browserIntent);
+//        GetCleoProButton.setOnClickListener(v -> {
+//            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.riteshknayak.cleopro"));
+//            startActivity(browserIntent);
+//
+//        });
 
-        });
-
-
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
-        mAdView.setAdListener(new AdListener() {
-            @Override
-            public void onAdClicked() {
-                // Code to be executed when the user clicks on an ad.
-                super.onAdClicked();
-
-            }
-
-            @Override
-            public void onAdClosed() {
-                // Code to be executed when the user is about to return
-                // to the app after tapping on an ad.
-
-            }
-
-            @Override
-            public void onAdFailedToLoad(LoadAdError adError) {
-                // Code to be executed when an ad request fails.
-                super.onAdFailedToLoad(adError);
-                mAdView.loadAd(adRequest);
-            }
-
-            @Override
-            public void onAdImpression() {
-                // Code to be executed when an impression is recorded
-                // for an ad.
-            }
-
-            @Override
-            public void onAdLoaded() {
-                // Code to be executed when an ad finishes loading.
-                super.onAdLoaded();
-            }
-
-            @Override
-            public void onAdOpened() {
-                // Code to be executed when an ad opens an overlay that
-                // covers the screen.
-                super.onAdOpened();
-            }
-        });
 
 
         //Set credits

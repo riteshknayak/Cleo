@@ -1,4 +1,4 @@
-package com.riteshknayak.cleo;
+package com.riteshknayak.cleo.Adapters;
 
 import static android.content.Context.CLIPBOARD_SERVICE;
 
@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.riteshknayak.cleo.Models.Message;
+import com.riteshknayak.cleo.R;
 
 import java.util.List;
 
@@ -54,7 +55,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
                 ClipData clip = ClipData.newPlainText("label", message.getMessage());
                 clipboard.setPrimaryClip(clip);
 
-                Toast.makeText(holder.itemView.getContext(), "Text copied to clipboard", Toast.LENGTH_LONG).show();
+                Toast.makeText(holder.itemView.getContext(), "Copied!", Toast.LENGTH_LONG).show();
             });
         }
     }

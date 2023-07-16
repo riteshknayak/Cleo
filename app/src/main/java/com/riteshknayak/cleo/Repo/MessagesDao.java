@@ -1,4 +1,4 @@
-package com.riteshknayak.cleo;
+package com.riteshknayak.cleo.Repo;
 
 import androidx.room.Dao;
 import androidx.room.Delete;

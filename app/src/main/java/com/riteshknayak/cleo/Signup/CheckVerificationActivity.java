@@ -1,4 +1,4 @@
-package com.riteshknayak.cleo;
+package com.riteshknayak.cleo.Signup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.firebase.auth.FirebaseAuth;
+import com.riteshknayak.cleo.MainActivity;
 import com.riteshknayak.cleo.databinding.ActivityCheckVerificationBinding;
 
 import java.util.Objects;

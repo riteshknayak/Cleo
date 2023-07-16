@@ -6,7 +6,7 @@
     android:background="@color/bg_color"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".CheckVerificationActivity">
+    tools:context=".Signup.CheckVerificationActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

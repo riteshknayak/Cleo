@@ -1,4 +1,4 @@
-package com.riteshknayak.cleo;
+package com.riteshknayak.cleo.Utils;
 
 import android.content.Context;
 import android.util.Log;
@@ -19,7 +19,7 @@ public class Constants  {
 
     public static void loadRewardedAd(Context context){
         RewardedAd.load(context,
-                "ca-app-pub-9592447067025157/6227800060",
+                "ca-app-pub-9592447067025157/1910513009",
                 new AdRequest.Builder().build()
                 , new RewardedAdLoadCallback() {
                     @Override

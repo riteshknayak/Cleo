@@ -1,4 +1,4 @@
-package com.riteshknayak.cleo;
+package com.riteshknayak.cleo.Signup;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.riteshknayak.cleo.MainActivity;
 import com.riteshknayak.cleo.databinding.ActivitySignInWithEmailBinding;
 
 import java.util.Objects;

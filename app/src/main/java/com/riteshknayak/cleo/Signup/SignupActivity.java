@@ -1,4 +1,4 @@
-package com.riteshknayak.cleo;
+package com.riteshknayak.cleo.Signup;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +18,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.riteshknayak.cleo.MainActivity;
 import com.riteshknayak.cleo.Models.User;
+import com.riteshknayak.cleo.R;
 import com.riteshknayak.cleo.databinding.ActivitySignupBinding;
 
 import java.util.HashMap;

@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:paddingStart="40dp"
     android:paddingEnd="40dp"
-    tools:context=".SignInWithEmailActivity">
+    tools:context=".Signup.SignInWithEmailActivity">
 
     <TextView
         android:layout_width="wrap_content"

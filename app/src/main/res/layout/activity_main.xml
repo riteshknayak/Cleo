@@ -104,7 +104,6 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/adView"
         android:layout_below="@+id/app_bar_layout"
         android:background="@color/bg_color" />
 
@@ -117,16 +116,16 @@
 <!--        android:text="Welcome to ChatGPT\nTry it out now"-->
 <!--        android:textSize="28dp" />-->
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        ads:adSize="BANNER"
-        android:layout_above="@id/bottom_layout"
-        ads:adUnitId="ca-app-pub-9592447067025157/3988703431">
-    </com.google.android.gms.ads.AdView>
+<!--    <com.google.android.gms.ads.AdView-->
+<!--        xmlns:ads="http://schemas.android.com/apk/res-auto"-->
+<!--        android:id="@+id/adView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        ads:adSize="BANNER"-->
+<!--        android:layout_above="@id/bottom_layout"-->
+<!--        ads:adUnitId="ca-app-pub-9592447067025157/3988703431">-->
+<!--    </com.google.android.gms.ads.AdView>-->
 
 
 

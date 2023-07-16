@@ -1,4 +1,4 @@
-package com.riteshknayak.cleo;
+package com.riteshknayak.cleo.Signup;
 
 import android.content.Intent;
 import android.os.Bundle;
