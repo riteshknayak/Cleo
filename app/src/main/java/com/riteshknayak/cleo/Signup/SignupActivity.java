@@ -53,12 +53,8 @@ public class SignupActivity extends AppCompatActivity {
         //Setup ViewBinding
         binding = ActivitySignupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
         //Initialise FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
-
-
         //Initialise Firestore
         database = FirebaseFirestore.getInstance();
 

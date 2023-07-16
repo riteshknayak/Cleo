@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements ObservableScrollV
 
                     //Provide the reward
                     credits = credits + rewardAmount;
-                    Toast.makeText(getApplicationContext(), "5 credits added", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), rewardAmount+" credits added", Toast.LENGTH_SHORT).show();
                     binding.credits.setText(Integer.toString(credits));
 
                     //change data in database

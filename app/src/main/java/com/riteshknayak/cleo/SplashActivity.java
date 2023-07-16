@@ -6,6 +6,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.riteshknayak.cleo.Signup.SignupActivity;
+
 import java.util.Objects;
 
 @SuppressLint("CustomSplashScreen")
@@ -16,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        //Objects.requireNonNull(getSupportActionBar()).hide();
 
         Thread thread = new Thread(){
             public void run(){
@@ -26,7 +28,7 @@ public class SplashActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             finally {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                Intent intent = new Intent(SplashActivity.this, SignupActivity.class);
                 startActivity(intent);
                 }
             }
