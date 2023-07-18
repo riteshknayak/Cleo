@@ -5,6 +5,7 @@ plugins {
 
     id 'com.google.firebase.crashlytics'
     id 'com.google.firebase.firebase-perf'
+    id 'org.jetbrains.kotlin.android'
 
 }
 
@@ -21,8 +22,8 @@ android {
         targetSdk 34
 
         //TODO Change Version
-        versionCode 10
-        versionName "1.9"
+        versionCode 14
+        versionName "2.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,67 +39,52 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
 
-    //Firebase
-    implementation platform('com.google.firebase:firebase-bom:32.0.0')
-    implementation 'com.google.firebase:firebase-firestore'
-    implementation 'com.google.firebase:firebase-auth'
-    implementation 'com.google.firebase:firebase-crashlytics'
-    implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-perf'
-
-
-    //Google Play service for signup with Google
-    implementation 'com.google.android.gms:play-services-auth:20.6.0'
-
-
+    implementation 'androidx.core:core-ktx:1.10.1'
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.firebase:firebase-common-ktx:20.3.3'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
     implementation 'com.google.android.gms:play-services-auth:20.6.0'
 
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:32.2.0')
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-perf'
 
+    //Google Play service for signup with Google
+    implementation 'com.google.android.gms:play-services-auth:20.6.0'
+
+    //Room Library
     def room_version = "2.5.2"
-
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
-
-//    // To use Kotlin annotation processing tool (kapt)
-//    kapt "androidx.room:room-compiler:$room_version"
-//    // To use Kotlin Symbol Processing (KSP)
-//    ksp "androidx.room:room-compiler:$room_version"
-
-    // optional - RxJava2 support for Room
-    //implementation "androidx.room:room-rxjava2:$room_version"
-
-    // optional - RxJava3 support for Room
-    //implementation "androidx.room:room-rxjava3:$room_version"
-
-    // opti//onal - Guava support for Room, including Optional and ListenableFuture
-    //implementation "androidx.room:room-guava:$room_version"
-
-    // optional - Test helpers
-    //testImplementation "androidx.room:room-testing:$room_version"
-
-    // optional - Paging 3 Integration
-    //implementation "androidx.room:room-paging:$room_version"
-
-
 
     //android-observablescrollview
     implementation "com.github.ksoichiro:android-observablescrollview:1.6.0"
 
-
     //Google admob
     implementation 'com.google.android.gms:play-services-ads:22.2.0'
+
+    //Google Play Billing Library
+    implementation "com.android.billingclient:billing-ktx:6.0.1"
+
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-auth-ktx")
 
 
 }

@@ -30,3 +30,8 @@
 -dontwarn org.openjsse.javax.net.ssl.SSLParameters
 -dontwarn org.openjsse.javax.net.ssl.SSLSocket
 -dontwarn org.openjsse.net.ssl.OpenJSSE
+#-keep class com.google.firebase.** { *; }
+#-keep class com.google.android.gms.** { *; }
+#-dontwarn com.google.firebase.**
+#-keepclasseswithmembers class com.google.firebase.FirebaseException
+#-dontwarn com.google.android.gms.**
